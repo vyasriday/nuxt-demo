@@ -1,4 +1,4 @@
-// @ts-ignore
+<!-- @ts-nocheck -->
 <template>
   <main>
     <h1>Index Page</h1>
@@ -24,9 +24,11 @@
   </main>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+//  nuxt will make this call on server side on first load but also duplicate it on client side after hydration.
+// const data  = await $fetch(`https://api.coinlore.net/api/tickers/?limit=50`);
+// here call is made on the server side using server api route and won't be duplicated.
 const { data } = await useFetch(`/api/tickers/?limit=50`);
-
 </script>
 
 <style>
